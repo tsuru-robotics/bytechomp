@@ -1,7 +1,7 @@
 import struct
 
-from bytechomp import dataclass, ByteOrder, serialize
-from bytechomp.datatypes import (
+from bytechompx import dataclass, ByteOrder, serialize
+from bytechompx.datatypes import (
     U8,
     U16,
     U32,
@@ -14,7 +14,7 @@ from bytechomp.datatypes import (
     F32,
     F64,
 )
-from bytechomp.datatypes.lookups import TYPE_TO_TAG
+from bytechompx.datatypes.lookups import TYPE_TO_TAG
 
 
 @dataclass

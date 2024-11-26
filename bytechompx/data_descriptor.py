@@ -1,5 +1,5 @@
 """
-bytechomp.data_descriptor
+bytechompx.data_descriptor
 """
 
 from __future__ import annotations
@@ -8,13 +8,13 @@ from dataclasses import is_dataclass, fields, MISSING
 from collections import OrderedDict
 import inspect
 
-from bytechomp.datatypes.lookups import (
+from bytechompx.datatypes.lookups import (
     ELEMENTARY_TYPE_LIST,
     TYPE_TO_PYTYPE,
     TYPE_TO_TAG,
     TYPE_TO_LENGTH,
 )
-from bytechomp.basic_parsing_element import BasicParsingElement
+from bytechompx.basic_parsing_element import BasicParsingElement
 
 
 def build_data_description(

@@ -1,4 +1,4 @@
-from bytechomp import __version__
+from bytechompx import __version__
 
 
 def test_version() -> None:

@@ -1,13 +1,13 @@
-# bytechomp
+# bytechompx
 
-[![ci](https://github.com/AndrewSpittlemeister/bytechomp/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/AndrewSpittlemeister/bytechomp/actions/workflows/ci.yml)
-[![PyPI Version](https://img.shields.io/pypi/v/bytechomp.svg)](https://pypi.org/project/bytechomp/)
-[![Python Versions](https://img.shields.io/pypi/pyversions/bytechomp.svg)](https://pypi.org/project/bytechomp/)
-![Lines of Code](https://tokei.rs/b1/github/AndrewSpittlemeister/bytechomp?category=code)
+[![ci](https://github.com/AndrewSpittlemeister/bytechompx/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/AndrewSpittlemeister/bytechompx/actions/workflows/ci.yml)
+[![PyPI Version](https://img.shields.io/pypi/v/bytechompx.svg)](https://pypi.org/project/bytechompx/)
+[![Python Versions](https://img.shields.io/pypi/pyversions/bytechompx.svg)](https://pypi.org/project/bytechompx/)
+![Lines of Code](https://tokei.rs/b1/github/AndrewSpittlemeister/bytechompx?category=code)
 
 > *A pure python, declarative custom binary protocol parser & generator using dataclasses and type hinting.*
 
-`bytechomp` leverages Python's type hinting system at runtime to build binary protocol parsing schemas from dataclass implementations. Deserialization/Serialization of the binary data is now abstracted away by `bytechomp`, leaving you to work in the land of typed and structured data.
+`bytechompx` leverages Python's type hinting system at runtime to build binary protocol parsing schemas from dataclass implementations. Deserialization/Serialization of the binary data is now abstracted away by `bytechompx`, leaving you to work in the land of typed and structured data.
 
 **Features:**
 - [x] Pure Python
@@ -21,16 +21,16 @@
 
 ## Installation
 
-`bytechomp` is a small, pure python library with zero dependencies. It can be installed via PyPI:
+`bytechompx` is a small, pure python library with zero dependencies. It can be installed via PyPI:
 
 ```
-pip install bytechomp
+pip install bytechompx
 ```
 
 or Git for the latest unreleased code:
 
 ```
-pip install https://github.com/AndrewSpittlemeister/bytechomp.git@main
+pip install https://github.com/AndrewSpittlemeister/bytechompx.git@main
 ```
 
 ## Reader API
@@ -40,7 +40,7 @@ The `Reader` class uses Python's built-in [generics](https://docs.python.org/3/l
 ```python
 from dataclasses import dataclass
 
-from bytechomp import Reader
+from bytechompx import Reader
 
 @dataclass
 class MyStruct:
@@ -80,7 +80,7 @@ for my_struct in reader.iter(simulated_byte_iterator):
 Similar to the `Reader`, serialization of data is accomplished through defining dataclasses in the same manner.
 
 ```python
-from bytechomp import serialize
+from bytechompx import serialize
 
 my_struct = MyStruct(1.1, 15)
 
@@ -88,10 +88,10 @@ serialized_struct: bytes = serialize(my_struct)
 ```
 
 ## Supported Type Fields
-Fields on the dataclasses can be integers, floats, strings, bytes, lists, or other dataclasses. Python-native `int` and `float` represent 64-bit variants. Other sizes can be imported from `bytechomp`:
+Fields on the dataclasses can be integers, floats, strings, bytes, lists, or other dataclasses. Python-native `int` and `float` represent 64-bit variants. Other sizes can be imported from `bytechompx`:
 
 ```python
-from bytechomp.datatypes import (
+from bytechompx.datatypes import (
     U8,  # 8-bit unsigned integer
     U16,  # 16-bit unsigned integer
     U32,  # 32-bit unsigned integer
@@ -111,7 +111,7 @@ Although these allow a `Reader` to parse a field of a custom size, the resulting
 Repeated fields like `bytes` and `list` require the use of Python's `typing.Annotated` to allow defining a length.
 
 ```python
-from bytechomp import Annotated, dataclass  # re-exported by bytechomp
+from bytechompx import Annotated, dataclass  # re-exported by bytechompx
 
 @dataclass
 class Message:
@@ -126,7 +126,7 @@ Finally, `list` fields can contain any other supported datatype, including other
 Byte default the byte-ordering is set to the machine's native format, but can be changed:
 
 ```python
-from bytechomp import Reader, ByteOrder, dataclass, serialize
+from bytechompx import Reader, ByteOrder, dataclass, serialize
 
 @dataclass
 class MyStruct:
@@ -149,8 +149,8 @@ data = serialize(MyStruct(1.1, 15), ByteOrder.BIG)
 ## A Longer Example
 
 ```python
-from bytechomp import Reader, dataclass, Annotated, serialize
-from bytechomp.datatypes import U16, F32
+from bytechompx import Reader, dataclass, Annotated, serialize
+from bytechompx.datatypes import U16, F32
 
 
 @dataclass
@@ -197,13 +197,13 @@ def main() -> None:
 ```
 
 ## Other Examples
-- See [parse-sqlite-header.py](./examples/parse-sqlite-header.py) for an example of using `bytechomp` to read the header message of an sqlite file. A rough estimate of what this should result in can be found [here](https://docs.fileformat.com/database/sqlite/).
-- See [tcp-client-server.py](./examples/tcp-client-server.py) for an example of using `bytechomp` to serialize/deserialize binary messages across a TCP connection.
+- See [parse-sqlite-header.py](./examples/parse-sqlite-header.py) for an example of using `bytechompx` to read the header message of an sqlite file. A rough estimate of what this should result in can be found [here](https://docs.fileformat.com/database/sqlite/).
+- See [tcp-client-server.py](./examples/tcp-client-server.py) for an example of using `bytechompx` to serialize/deserialize binary messages across a TCP connection.
 
 
 ## How does this work?
 
-While a binary stream is usually represented as a flat, continuous data, `bytechomp` can be used as a structural abstraction over this data. Therefore, if there was a message with the following structure for a message called `UserState`:
+While a binary stream is usually represented as a flat, continuous data, `bytechompx` can be used as a structural abstraction over this data. Therefore, if there was a message with the following structure for a message called `UserState`:
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
@@ -213,8 +213,8 @@ While a binary stream is usually represented as a flat, continuous data, `bytech
 The resulting translation to a dataclass would be the following:
 
 ```python
-from bytechomp import Reader, dataclass
-from bytechomp.datatypes import F32
+from bytechompx import Reader, dataclass
+from bytechompx.datatypes import F32
 
 @dataclass
 class UserState:
@@ -222,13 +222,13 @@ class UserState:
     balance: F32
 ```
 
-When parsing messages that contain other messages, you will need to be aware of how the embedded messages are contained and how the resulting memory layout will look for the container message as whole. Since the container message is still represented as one set of continuous bytes, nested classes in bytechomp are constructed using a depth first search of the contained fields in nested structures to build out a flattened parsing pattern for Python's `struct` module.
+When parsing messages that contain other messages, you will need to be aware of how the embedded messages are contained and how the resulting memory layout will look for the container message as whole. Since the container message is still represented as one set of continuous bytes, nested classes in bytechompx are constructed using a depth first search of the contained fields in nested structures to build out a flattened parsing pattern for Python's `struct` module.
 
 Consider the following structures:
 
 ```python
-from bytechomp import Reader, dataclass, Annotated  # using re-export from within bytechomp
-from bytechomp.datatypes import F32
+from bytechompx import Reader, dataclass, Annotated  # using re-export from within bytechompx
+from bytechompx.datatypes import F32
 
 @dataclass
 class UserState:
@@ -255,7 +255,7 @@ uint64, float32, float32, int64, int64, float32, int64, int64, float32, int64, i
 
 ## Additional Notes
 
-This package is based on a mostly undocumented feature in standard implementation of CPython. This is the ability to inspect the type information generic parameters via the `self.__orig_class__.__args__` structures. The information in this structure is only populated after initialization (hence the need for the `allocate()` method when instantiated a `Reader` object). Should this behavior change in future versions of Python, `bytechomp` will adapt accordingly. For now, it will stay away from passing a type object as a argument to initialization because that just seems hacky.
+This package is based on a mostly undocumented feature in standard implementation of CPython. This is the ability to inspect the type information generic parameters via the `self.__orig_class__.__args__` structures. The information in this structure is only populated after initialization (hence the need for the `allocate()` method when instantiated a `Reader` object). Should this behavior change in future versions of Python, `bytechompx` will adapt accordingly. For now, it will stay away from passing a type object as a argument to initialization because that just seems hacky.
 
 **Future Improvements:**
 - Perhaps allowing for parameterized fields to reference previously declared fields (i.e. allowing a list of size `n` where `n` is the previous field)

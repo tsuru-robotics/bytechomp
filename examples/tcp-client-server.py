@@ -2,7 +2,7 @@ import socket
 from typing import Final
 from threading import Thread, Event
 
-from bytechomp import dataclass, Reader, serialize, Annotated
+from bytechompx import dataclass, Reader, serialize, Annotated
 
 HOST: Final[str] = "127.0.0.1"
 PORT: Final[int] = 55555

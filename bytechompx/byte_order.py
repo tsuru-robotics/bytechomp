@@ -1,5 +1,5 @@
 """
-bytechomp.byte_order
+bytechompx.byte_order
 """
 
 from enum import Enum

@@ -3,8 +3,8 @@ from random import randint, uniform
 
 import pytest
 
-from bytechomp import dataclass, Reader, serialize, Annotated
-from bytechomp.datatypes import (
+from bytechompx import dataclass, Reader, serialize, Annotated
+from bytechompx.datatypes import (
     U8,
     U16,
     U32,

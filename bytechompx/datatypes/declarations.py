@@ -1,5 +1,5 @@
 """
-bytechomp.datatypes.declarations
+bytechompx.datatypes.declarations
 """
 
 from typing import NewType

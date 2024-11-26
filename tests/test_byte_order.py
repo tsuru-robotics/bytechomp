@@ -1,4 +1,4 @@
-from bytechomp.byte_order import ByteOrder
+from bytechompx.byte_order import ByteOrder
 
 
 def test_byte_order_serialization() -> None:

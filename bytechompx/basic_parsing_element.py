@@ -1,11 +1,11 @@
 """
-bytechomp.basic_parsing_element
+bytechompx.basic_parsing_element
 """
 
 from __future__ import annotations
 from dataclasses import dataclass
 
-from bytechomp.datatypes.lookups import ELEMENTARY_TYPE
+from bytechompx.datatypes.lookups import ELEMENTARY_TYPE
 
 
 @dataclass

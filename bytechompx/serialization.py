@@ -1,17 +1,17 @@
 """
-bytechomp.serialization
+bytechompx.serialization
 """
 
 import struct
 from typing import Annotated, get_origin, get_args
 from dataclasses import is_dataclass, fields
 
-from bytechomp.datatypes.lookups import (
+from bytechompx.datatypes.lookups import (
     ELEMENTARY_TYPE_LIST,
     TYPE_TO_TAG,
     TYPE_TO_PYTYPE,
 )
-from bytechomp.byte_order import ByteOrder
+from bytechompx.byte_order import ByteOrder
 
 
 def flatten_dataclass(data_object: type) -> tuple[str, list[int | float | bytes]]:
@@ -155,7 +155,7 @@ def flatten_dataclass(data_object: type) -> tuple[str, list[int | float | bytes]
 
 
 def serialize(data_object: type, byte_order: ByteOrder = ByteOrder.NATIVE) -> bytes:
-    """Serializes a completely populated dataclass into a byte string according to the bytechomp
+    """Serializes a completely populated dataclass into a byte string according to the bytechompx
         serialization rules.
 
     Args:

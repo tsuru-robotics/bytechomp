@@ -2,8 +2,8 @@ import struct
 
 import pytest
 
-from bytechomp import Reader, dataclass, Annotated, ByteOrder
-from bytechomp.datatypes import (
+from bytechompx import Reader, dataclass, Annotated, ByteOrder
+from bytechompx.datatypes import (
     U8,
     U16,
     U32,
@@ -16,7 +16,7 @@ from bytechomp.datatypes import (
     F32,
     F64,
 )
-from bytechomp.datatypes.lookups import TYPE_TO_TAG
+from bytechompx.datatypes.lookups import TYPE_TO_TAG
 
 
 @dataclass

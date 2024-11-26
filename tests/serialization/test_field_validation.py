@@ -2,8 +2,8 @@ from random import choice
 
 import pytest
 
-from bytechomp import dataclass, serialize, Annotated
-from bytechomp.datatypes import (
+from bytechompx import dataclass, serialize, Annotated
+from bytechompx.datatypes import (
     U8,
     U16,
     U32,

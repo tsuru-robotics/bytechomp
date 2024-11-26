@@ -1,5 +1,5 @@
 """
-bytechomp.reader
+bytechompx.reader
 """
 
 from __future__ import annotations
@@ -9,8 +9,8 @@ from collections import OrderedDict
 from struct import Struct
 import inspect
 
-from bytechomp.byte_order import ByteOrder
-from bytechomp.data_descriptor import (
+from bytechompx.byte_order import ByteOrder
+from bytechompx.data_descriptor import (
     build_data_description,
     build_data_pattern,
     build_structure,

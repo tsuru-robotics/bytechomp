@@ -1,10 +1,10 @@
 """
-bytechomp.datatypes.declarations
+bytechompx.datatypes.declarations
 """
 
 from typing import NewType, Final
 
-from bytechomp.datatypes.declarations import *  # pylint: disable=wildcard-import
+from bytechompx.datatypes.declarations import *  # pylint: disable=wildcard-import
 
 ELEMENTARY_TYPE = type | NewType
 ELEMENTARY_TYPE_LIST: Final[list[ELEMENTARY_TYPE]] = [  # type: ignore

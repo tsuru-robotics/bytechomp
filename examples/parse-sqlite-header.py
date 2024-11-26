@@ -1,8 +1,8 @@
 from pathlib import Path
 import sqlite3
 
-from bytechomp import Reader, dataclass, Annotated
-from bytechomp.datatypes import U8, U16, U32
+from bytechompx import Reader, dataclass, Annotated
+from bytechompx.datatypes import U8, U16, U32
 
 
 @dataclass
